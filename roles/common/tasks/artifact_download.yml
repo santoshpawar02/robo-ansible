@@ -1,0 +1,38 @@
+# artifact_download () {
+#     print_head User Add roboshop
+#     id roboshop &>>$log_file
+#     if [ $? -ne 0 ]; then
+#         useradd roboshop &>>$log_file
+#     fi
+#     exit_status_print $?
+#     print_head remove app folder
+#     rm -rf /app &>>$log_file
+#     exit_status_print $?
+#     mkdir /app  &>>$log_file
+#     curl -L -o /tmp/$component.zip https://roboshop-artifacts.s3.amazonaws.com/$component-v3.zip &>>$log_file
+#     exit_status_print $?
+#     cd /app  &>>$log_file
+#     unzip /tmp/$component.zip  &>>$log_file
+#     exit_status_print $?
+# }
+
+- name : User Add roboshop
+  ansible.builtin.user:
+    name : roboshop
+
+
+- name: Remove old folder
+  ansible.builtin.file:
+  path: /app
+  state: absent
+
+- name: Create new folder
+  ansible.builtin.file:
+  path: /app
+  state: directory  
+
+- name: Download and Extract
+  ansible.builtin.unarchive:
+  src: https://roboshop-artifacts.s3.amazonaws.com/{{ component_name }}-v3.zip
+  dest: /app
+  remote_src: yes    
