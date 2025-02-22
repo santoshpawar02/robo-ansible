@@ -1,14 +1,15 @@
 - name: Frontend Setup
   hosts: all
+  become: true
   tasks:
-    -name: Disable default Nginx 
-     ansible.builtin.shell: dnf module disable nginx -y
+    - name: Disable default Nginx 
+      ansible.builtin.shell: dnf module disable nginx -y
 
-    -name: Enable Nginx
-     ansible.builtin.shell: dnf module install nginx:1.24 -y
+    - name: Enable Nginx
+      ansible.builtin.shell: dnf module install nginx:1.24 -y
 
-    -name: Install Nginx
-     ansible.builtin.shell:
+    - name: Install Nginx
+      ansible.builtin.shell:
         name: nginx
         state: removed   
 
