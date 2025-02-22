@@ -7,9 +7,8 @@
 
     # - name: Enable Nginx
     #   ansible.builtin.shell: dnf module install nginx:1.24 -y
-
     - name: Install Nginx
-      ansible.builtin.shell:
+      ansible.builtin.dnf:
         name: nginx
         state: removed   
 
