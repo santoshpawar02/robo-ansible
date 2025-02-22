@@ -11,6 +11,10 @@
       ansible.builtin.dnf:
         name: nginx
         state: removed   
+    - name: start service
+      ansible.builtin.systemd:
+        name: nginx
+        state: started    
 
 
 
