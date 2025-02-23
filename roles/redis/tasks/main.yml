@@ -24,7 +24,7 @@
 - name : Install Redis
   ansible.builtin.dnf:
     name: redis
-    state: Installed
+    state: installed
 - name : Update Redis Config file address 
   ansible.builtin.replace:
     path : /etc/redis/redis.conf
