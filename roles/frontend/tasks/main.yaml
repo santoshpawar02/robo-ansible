@@ -16,19 +16,19 @@
 
 - name: Remove old folder
   ansible.builtin.file:
-  path: /usr/share/nginx/html
-  state: absent
+    path: /usr/share/nginx/html
+    state: absent
 
 - name: Create old folder
   ansible.builtin.file:
-  path: /usr/share/nginx/html
-  state: directory  
+    path: /usr/share/nginx/html
+    state: directory  
 
 - name: Download and Extract
   ansible.builtin.unarchive:
-  src: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
-  dest: /usr/share/nginx/html
-  remote_src: yes
+    src: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
+    dest: /usr/share/nginx/html
+    remote_src: yes
 
 - name: Start service
   ansible.builtin.systemd:
