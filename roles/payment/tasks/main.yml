@@ -1,0 +1,9 @@
+# component=payment
+# source common.sh
+
+# python_app_setup
+
+- name : Load python
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: python
