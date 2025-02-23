@@ -26,9 +26,9 @@
     dest: /etc/yum.repos.d/mongo.repo
 
 - name : Install MongoDB
-  ansible.builtin.dnf:
+  ansible.buitin.dnf:
     name: mongodb-mongosh
     state: installed 
 
-- name: Load Master Data 
+- name: load Master Data 
   ansible.builtin.shell: mongosh --host mongo-dev.santoshpawar.site </app/db/master-data.js
