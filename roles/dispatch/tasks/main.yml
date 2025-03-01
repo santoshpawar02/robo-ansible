@@ -40,7 +40,7 @@
   ansible.builtin.shell: go mod init dispatch ; go get ; go build   
   args:
     chdir: /app
-    
+
 - name : Include systemd_setup
-  ansible.builtin.include_tasks:
-    file: systemd_setup.yml  
+  ansible.builtin.include_role:
+    file: systemd_setup
