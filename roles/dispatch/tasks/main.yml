@@ -31,9 +31,10 @@
     name: golang
     state: installed
 
-- name : Include artifact_download
-  ansible.builtin.include_tasks:
-    file: artifact_download.yml    
+- name : Load nodejs
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: artifact_download
 
 - name: Build the App
   ansible.builtin.shell: go mod init dispatch ; go get ; go build   
