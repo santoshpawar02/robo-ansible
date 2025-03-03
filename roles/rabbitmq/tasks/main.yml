@@ -18,7 +18,7 @@
 # exit_status_print $?
 
 - name: Copy RabbitMQ repo
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: rabbitmq.repo
     dest: /etc/yum.repos.d/rabbitmq.repo
 - name: Install RabbitMQ
