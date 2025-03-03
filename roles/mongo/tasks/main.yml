@@ -19,7 +19,7 @@
 # exit_status_print $?
 
 - name : Copy monogodb repo file
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
 - name : Install MongoDB 
