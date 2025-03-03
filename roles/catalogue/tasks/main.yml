@@ -12,7 +12,7 @@
 # exit_status_print $?
 
 # print_head Load MongoDB master data
-# mongosh --host mongo-dev.santoshpawar.site </app/db/master-data.js &>>$log_file
+# mongosh --host mongo-{{ env }}.santoshpawar.site </app/db/master-data.js &>>$log_file
 # exit_status_print $?
 
 - name : Load nodejs
@@ -21,7 +21,7 @@
     tasks_from: nodejs
 
 - name : Copy MongoDB repo file
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
 
@@ -31,4 +31,4 @@
     state: installed 
 
 - name: load Master Data 
-  ansible.builtin.shell: mongosh --host mongo-dev.santoshpawar.site </app/db/master-data.js
+  ansible.builtin.shell: mongosh --host mongo-{{ env }}.santoshpawar.site </app/db/master-data.js
