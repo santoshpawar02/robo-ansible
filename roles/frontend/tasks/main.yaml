@@ -9,6 +9,11 @@
     name: nginx
     state: installed
 
+- name: get secrets
+  ansible.builtin.set_fact:
+    secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'roboshop-{{ env }}/data/{{ component_name }} token={{ vault_token }} url=http://vault-internal.santoshpawar.site:8200') }}"
+
+
 - name: Copy Nginx config file
   ansible.builtin.template:
     src: nginx.conf
