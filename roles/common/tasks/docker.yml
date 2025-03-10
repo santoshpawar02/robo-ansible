@@ -1,5 +1,5 @@
 - name: Increase disk
-  ansible.builtin.shell: growpart /dev/nvme0n1 4 ; lvextend -r -l 100%FREE /dev/mapper/RootVG-varVol
+  ansible.builtin.shell: growpart /dev/xvda 4 ; lvextend -r -l 100%FREE /dev/mapper/RootVG-varVol
   ignore_errors: yes
 
 - name: Download docker repo file
