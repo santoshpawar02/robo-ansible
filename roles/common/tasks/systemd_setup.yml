@@ -10,7 +10,7 @@
 # }
 
 
-- name: return secrets as a dict (default)
+- name: Get secrets for this app - return secrets as a dict (default)
   ansible.builtin.set_fact:
     component_secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'roboshop-{{ env }}/data/{{ component_name }} token={{ vault_token }} url=http://vault-internal.santoshpawar.site:8200') }}"
 
