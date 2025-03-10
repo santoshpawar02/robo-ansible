@@ -25,7 +25,7 @@
 
 - name: Get secrets for this app
   ansible.builtin.set_fact:
-    component_secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'roboshop-{{ env }}/data/{{ component }} token={{ vault_token }} url=http://vault-internal.rdevopsb83.online:8200') }}"
+    component_secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'roboshop-{{ env }}/data/{{ component }} token={{ vault_token }} url=http://vault-internal.santoshpawar.site:8200') }}"
     component: "{{ component | regex_replace('-docker', '') }}"
   vars:
     component: "{{ component_name | regex_replace('-docker', '') }}"
