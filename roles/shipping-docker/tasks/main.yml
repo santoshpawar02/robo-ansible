@@ -1,0 +1,15 @@
+# component=cart
+# source common.sh
+
+# nodejs_app_setup
+# exit_status_print $?
+
+# - name : Load nodejs
+#   ansible.builtin.include_role:
+#     name: common
+#     tasks_from: nodejs
+
+- name : Load Docker
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: docker
